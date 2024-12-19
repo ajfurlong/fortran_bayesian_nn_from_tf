@@ -1,0 +1,17 @@
+                                  Values
+MAE                             0.422579
+Max AE                         15.728569
+Min AE                          0.002490
+Std AE                          0.730851
+Mean Sample Vector Std          0.609368
+Max Sample Vector Std           4.684144
+MAPE                            3.815101
+Max APE                       580.977144
+Min APE                         0.002282
+Std APE                        20.361668
+Mean Sample Vector rStd (%)    67.214834
+Max Sample Vector rStd (%)  61322.008170
+rRMSE (%)                      20.715996
+Ferr > 10% (%)                  6.000000
+R^2                             0.999608
+Inference Time (s)           1263.574493
