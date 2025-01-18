@@ -4,6 +4,10 @@ program main
     use metrics_module
     implicit none
 
+    !!!!!!!!!!!!!!!!!!!
+    ! Example main.f90, noisy sinusoid problem
+    !!!!!!!!!!!!!!!!!!!
+
     ! Data arrays
     real, allocatable :: input1(:), input2(:)
     real, allocatable :: x_data(:,:), y_pred(:), y_data(:), y_pred_tf(:), y_samples(:), y_unc(:)
@@ -67,18 +71,24 @@ program main
     ! Custom PRNG used which ~should~ be very similar
     call set_random_seed(1234)
 
-    ! Load model weights, biases and scaling parameters from model.h5 and metadata.h5
     print *, 'Loading model...'
+
+    ! Define model architecture
+    ! Number of input features
     num_inputs = 2
+
+    ! Neurons in each layer [Input, Hidden1, ..., Output]
     call initialize_network([2,16,16,16,2])
     
+    ! Load model weights, biases and scaling parameters from model.h5 and metadata.h5
     call load_weights(model_path)
     call load_metadata(metadata_path, x_mean, y_mean, x_std, y_std)
 
     ! Assign activation functions for each layer
-    layer_activations(1)%func => relu
-    layer_activations(2)%func => relu
-    layer_activations(3)%func => relu
+    ! Defaults to relu
+    layer_activations(1)%func => relu_fn
+    layer_activations(2)%func => relu_fn
+    layer_activations(3)%func => relu_fn
     layer_activations(4)%func => no_activation
     print *, 'Model load successful.'
 
@@ -129,5 +139,8 @@ program main
 
     ! Print out metrics if performance-checking
     call compute_metrics(y_data, y_pred, y_unc, y_pred_tf, elapsed_time, num_samples)
+
+    ! Save data to a .csv file for visualization
+    call save_verification_data("verification_output_sinusoid.csv", x_data, y_data, y_pred, y_unc, y_pred_tf, num_entries, num_inputs)
 
 end program main

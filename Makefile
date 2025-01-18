@@ -12,7 +12,7 @@ OBJ_DIR = obj
 BIN_DIR = bin
 
 # Define the flags
-FFLAGS = -fbounds-check -O2 -I$(INCLUDE_DIR) -J$(OBJ_DIR)
+FFLAGS = -fbounds-check -O2 -fdefault-real-8 -I$(INCLUDE_DIR) -J$(OBJ_DIR)
 LDFLAGS = -L$(LIB_DIR) -lhdf5_fortran -lhdf5
 
 # Define the source files
