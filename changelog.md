@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.1.1] - 2025-12-02
+### Added
+- N/A
+
+### Changed
+- More robust handling of real precision
+- Main remains unchanged
+
+### Fixed
+- Precision handling was pretty brittle, it should be strong logic now
+
 ## [1.1.0] - 2025-01-18
 ### Added
 - Verification toy problem "nonlinear regression" and results

@@ -1,9 +1,9 @@
-cff-version: 1.1.0
+cff-version: 1.1.1
 message: "If you use this software, please cite it as below."
 authors:
   - family-names: Furlong
     given-names: Aidan
     orcid: https://orcid.org/0000-0002-6291-2959
 title: "Making Predictions in Fortran using Pre-trained TensorFlow Bayesian NN Models "
-version: 1.1.0
-date-released: 2025-01-18
+version: 1.1.1
+date-released: 2025-12-02
